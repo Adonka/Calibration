@@ -8,6 +8,9 @@ public class Password : MonoBehaviour
 {
     //public Text guideline = " ";
     public string pin = "1234";
+    //[SerializedField]
+    //InputField inputField = GameObject.Find("InputField");
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -29,24 +32,29 @@ public class Password : MonoBehaviour
 
         if ( inputText.text == pin){
             Debug.Log("True!" + inputText.text);
+            Destroy(GameObject.Find("InputField"));
 
-          Text guideline = GameObject.Find("PIN").GetComponent<Text>();
-          guideline.text = "Connect your headphone to this device.";
+            Text guideline = GameObject.Find("PIN").GetComponent<Text>();
+            guideline.text = "Connect your headphone to this device.";
 
-          /*foreach (Transform child in gameObject.transform)
+          
+            Text buttonText = GameObject.Find("Button/Text").GetComponent<Text>();
+            buttonText.text = "Start";
+            InputField form = GameObject.Find("InputField").GetComponent<InputField>();
+            form.text = "";
+            
+            //if(someCondition)
+            //form.SetActive(false);
+            
+        }
+        /*foreach (Transform child in gameObject.transform)
                 {
                     //Remove the inputfield
                     Destroy(child.gameObject);
                 }
             */
-            Text buttonText = GameObject.Find("Button/Text").GetComponent<Text>();
-            buttonText.text = "Start";
-            InputField form = GameObject.Find("InputField").GetComponent<InputField>();
-            form.text = "";
-            Destroy(GameObject.Find("InputField"));
-        }
         
-        /*GUI.Label(new Rect(450, 245, 100, 30), "Password");
+        /*GUI.Label(new Rect(450, 245, 100, 30), "Password"); To have password  
         passwordToEdit = GUI.PasswordField(new Rect(450, 270, 200, 20), passwordToEdit, "*"[0], 4);*/
     }
     
